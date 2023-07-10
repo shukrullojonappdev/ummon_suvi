@@ -1,20 +1,15 @@
 :root {
   --white: #eeeeee;
-  --black: #000000;
-  --primary: #4e4feb;
-  --secondary: #068fff;
+  --black: #1a1a1a;
+  --black2: #242424;
+  --primary: #3496c6;
+  --secondary: #1a76a6;
+  --third: #105377;
 }
 
 :root {
-  --color-background: var(--white);
-  --color-text: var(--black);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: var(--black);
-    --color-text: var(--white);
-  }
+  --color-background: var(--black2);
+  --color-text: var(--white);
 }
 
 *,
