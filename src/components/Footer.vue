@@ -1,4 +1,31 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+import emailjs from "@emailjs/browser";
+
+const message = ref({
+  address: "",
+  phone: "",
+  count: "",
+});
+
+function sendEmail() {
+  emailjs
+    .sendForm(
+      "service_oszettl",
+      "template_5nn0riw",
+      "#form",
+      "gjrezzH7hbpMfMssB"
+    )
+    .then(
+      (result) => {
+        alert("Buyurtmangiz qabul qilindi");
+      },
+      (error) => {
+        alert("Buyurtmangiz qabul qilinmadi");
+      }
+    );
+}
+</script>
 
 <template>
   <svg viewBox="0 0 500 60" class="wave">
@@ -14,14 +41,14 @@
   <div class="order">
     <div class="container">
       <div class="form-group">
-        <form class="form" action="">
+        <form class="form" id="form" ref="message">
           <label for="address">Manzil</label>
-          <input id="address" type="text" />
+          <input id="address" type="text" name="address" />
           <label for="phone">Tel raqam</label>
-          <input id="phone" type="phone" />
+          <input id="phone" type="phone" name="phone" />
           <label for="count">Soni</label>
-          <input id="count" type="number" />
-          <button>Buyurtma qilish</button>
+          <input id="count" type="number" name="count" />
+          <button type="button" @click="sendEmail()">Buyurtma qilish</button>
         </form>
       </div>
     </div>
@@ -41,11 +68,11 @@
       <div>
         <div class="contact">
           <img src="../assets/phone-call.png" alt="" class="icon" />
-          <span>+998934371770</span>
+          <a href="tel:+998942150002">+998942150002</a>
         </div>
         <div class="contact">
-          <img src="../assets/telegram.png" alt="" class="icon" />
-          <span>@ilhom</span>
+          <img src="../assets/phone-call.png" alt="" class="icon" />
+          <a href="tel:+998934526788">+998934526788</a>
         </div>
       </div>
     </div>
